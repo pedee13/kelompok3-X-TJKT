@@ -1,5 +1,4 @@
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-  e.preventDefault();
+function login() {
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();
 
@@ -8,4 +7,4 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
   } else {
     window.location.href = "pilih-game.html";
   }
-});
+}
