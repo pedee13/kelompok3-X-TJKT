@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Top Up Mobile Legends</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <img src="https://i.imgur.com/238aZrw.png" alt="Logo" />
+      <div class="nav-links">
+        <a href="profil.html">Profil</a>
+        <a href="pilih-game.html">Home</a>
+        <a href="informasi.html">Informasi Web</a>
+        <a href="cs.html">Customer Service</a>
+      </div>
+    </nav>
+
+    <h2>Top Up Mobile Legends</h2>
+
+    <input
+      type="text"
+      id="userID"
+      placeholder="Masukkan ID Mobile Legends kamu"
+    />
+
+    <div class="nominal-container">
+      <div class="nominal-box" onclick="pilih(86, 1500)">
+        86 Diamond<br />Rp 1.500
+      </div>
+      <div class="nominal-box" onclick="pilih(172, 3000)">
+        172 Diamond<br />Rp 3.000
+      </div>
+      <div class="nominal-box" onclick="pilih(257, 4500)">
+        257 Diamond<br />Rp 4.500
+      </div>
+      <div class="nominal-box" onclick="pilih(514, 9000)">
+        514 Diamond<br />Rp 9.000
+      </div>
+    </div>
+
+    <div class="discount-container">
+      <input
+        type="text"
+        class="kupon"
+        id="kupon"
+        placeholder="Masukkan Kupon"
+      />
+      <button onclick="applyDiscount()">Gunakan Kupon</button>
+    </div>
+
+    <button onclick="lanjut()">Lanjut ke Pembayaran</button>
+  </body>
+  <script src="./js/ml.js"></script>
+</html>

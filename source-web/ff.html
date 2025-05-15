@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Top Up Free Fire</title>
+    <link rel="stylesheet" href="../source-web/css/ff.css" />
+  </head>
+  <body>
+    <nav>
+      <img src="https://i.imgur.com/238aZrw.png" alt="Logo" />
+      <div class="nav-links">
+        <a href="profil.html">Profil</a>
+        <a href="pilih-game.html">Home</a>
+        <a href="informasi.html">Informasi Web</a>
+        <a href="cs.html">Customer Service</a>
+      </div>
+    </nav>
+
+    <h2>Top Up Free Fire</h2>
+
+    <input type="text" id="userID" placeholder="Masukkan ID Free Fire kamu" />
+
+    <div class="nominal-container">
+      <div class="nominal-box" onclick="pilih(60, 1000)">
+        60 Diamond<br />Rp 1.000
+      </div>
+      <div class="nominal-box" onclick="pilih(120, 2000)">
+        120 Diamond<br />Rp 2.000
+      </div>
+      <div class="nominal-box" onclick="pilih(180, 3000)">
+        180 Diamond<br />Rp 3.000
+      </div>
+      <div class="nominal-box" onclick="pilih(360, 6000)">
+        360 Diamond<br />Rp 6.000
+      </div>
+    </div>
+
+    <div class="discount-container">
+      <input
+        type="text"
+        class="kupon"
+        id="kupon"
+        placeholder="Masukkan Kupon"
+      />
+      <button onclick="applyDiscount()">Gunakan Kupon</button>
+    </div>
+
+    <button onclick="lanjut()">Lanjut ke Pembayaran</button>
+  </body>
+  <script src="../source-web/js/ff.js"></script>
+</html>
