@@ -1,0 +1,102 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f3f4f6;
+    text-align: center;
+  }
+
+  nav {
+    background-color: #007bff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  nav img {
+    height: 70px;
+    width: auto;
+    margin-right: 15px;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 40px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .payment-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .payment-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .payment-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .payment-box img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  .menu-toggle {
+    margin-left: auto;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 70px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    flex-direction: column;
+  }
+
+  .dropdown-menu a {
+    padding: 12px 20px;
+    text-align: left;
+    color: #333;
+    text-decoration: none;
+    font-weight: normal;
+    border-bottom: 1px solid #eee;
+  }
+
+  .dropdown-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
