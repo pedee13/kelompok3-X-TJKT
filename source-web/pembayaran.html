@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pilih Pembayaran</title>
+    <link rel="stylesheet" href="./css/pem.css" />
+  </head>
+  <body>
+    <nav>
+      <img src="https://i.imgur.com/238aZrw.png" alt="Logo" />
+      <div class="nav-links">
+        <a href="profil.html">Profil</a>
+        <a href="pilih-game.html">Home</a>
+        <a href="info.html">Informasi Web</a>
+        <a href="cs.html">Customer Service</a>
+      </div>
+    </nav>
+
+    <h2>Pilih Metode Pembayaran</h2>
+
+    <div class="payment-container">
+      <div class="payment-box" onclick="bayar('gopay.html')">
+        <img src="https://i.imgur.com/nYGbWzv.jpeg" alt="GoPay" />
+        <p>GoPay</p>
+      </div>
+      <div class="payment-box" onclick="bayar('dana.html')">
+        <img src="https://i.imgur.com/kGWUQDz.jpeg" alt="DANA" />
+        <p>DANA</p>
+      </div>
+      <div class="payment-box" onclick="bayar('ovo.html')">
+        <img src="https://i.imgur.com/RiicrIW.jpeg" alt="OVO" />
+        <p>OVO</p>
+      </div>
+      <div class="payment-box" onclick="bayar('qris.html')">
+        <img src="https://i.imgur.com/RAyy6rL.jpeg" alt="QRIS" />
+        <p>QRIS</p>
+      </div>
+    </div>
+
+    <script>
+
+      function bayar(file) {
+        const nominal = localStorage.getItem('nominal');
+        const harga = localStorage.getItem('harga');
+        if (!nominal || !harga) {
+          alert("Data nominal belum tersedia.");
+          return;
+        }
+        window.location.href = ${file}?nominal=${nominal}&harga=${harga};
+      }
+    </script>
+  </body>
+</html>
