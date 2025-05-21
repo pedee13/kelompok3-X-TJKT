@@ -8,7 +8,7 @@
   </head>
   <body>
     <nav>
-      <img src="https://i.imgur.com/238aZrw.png" alt="Logo" />
+      <img src="./css/foto/logoacil.png" alt="Logo" />
       <div class="nav-links">
         <a href="profil.html">Profil</a>
         <a href="pilih-game.html">Home</a>
@@ -37,18 +37,6 @@
         <p>QRIS</p>
       </div>
     </div>
-
-    <script>
-
-      function bayar(file) {
-        const nominal = localStorage.getItem('nominal');
-        const harga = localStorage.getItem('harga');
-        if (!nominal || !harga) {
-          alert("Data nominal belum tersedia.");
-          return;
-        }
-        window.location.href = ${file}?nominal=${nominal}&harga=${harga};
-      }
-    </script>
   </body>
+  <script src="./js/pmeb.js"></script>
 </html>
