@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran GoPay</title>
+    <link rel="stylesheet" href="./css/gopay.css" />
+  </head>
+  <body>
+    <nav>
+      <img src="./css/foto/logoacil.png" alt="Logo" />
+      <div class="nav-links">
+        <a href="profil.html">Profil</a>
+        <a href="pilih-game.html">Home</a>
+        <a href="informasi.html">Informasi Web</a>
+        <a href="cs.html">Customer Service</a>
+      </div>
+    </nav>
+
+    <h2>Pembayaran via GoPay</h2>
+
+    <div class="qris">
+      <img src="https://i.imgur.com/P8UrlQH.png" alt="QRIS GoPay" />
+    </div>
+
+    <div class="info" id="info">Nominal dan harga akan muncul di sini...</div>
+
+    <div class="cara-bayar">
+      <h3>Cara Pembayaran:</h3>
+      <ul>
+        <li>Buka aplikasi GoPay di HP kamu.</li>
+        <li>Pilih menu "Scan QR" lalu arahkan ke gambar QR di atas.</li>
+        <li>Masukkan jumlah sesuai nominal yang tertera.</li>
+        <li>Pastikan nama merchant sesuai, lalu tekan "Bayar".</li>
+      </ul>
+      <p class="peringatan">
+        Harap transfer sesuai nominal. Jika lebih, akan dianggap sebagai uang
+        tip.
+      </p>
+    </div>
+
+    <button onclick="konfirmasi()">Konfirmasi Pembayaran</button>
+
+    <script>
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const nominal = localStorage.getItem("nominal");
+      const harga = localStorage.getItem("harga");
+
+      document.getElementById("info").innerText = Nominal: ${nominal} Diamonds - Harga: Rp ${harga};
+
+      function konfirmasi() {
+        window.location.href = "proses.html?nominal=" + nominal + "&harga=" + harga;
+      }
+    </script>
+  </body>
+</html>
