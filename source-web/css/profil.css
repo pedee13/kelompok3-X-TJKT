@@ -16,15 +16,13 @@ nav img {
   width: auto;
   margin-right: 15px;
 }
-.nav-links {
-  margin-right: 20px;
-}
 
-.nav-links a {
+nav a {
   color: white;
   margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
 }
 
 .profile-container {

@@ -1,99 +1,118 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background: linear-gradient(135deg, #e0f7ff, #cce0ff);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  nav {
-    background-color: #007bff;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-  }
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #e0f7ff, #cce0ff);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+nav {
+  background-color: #007bff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
 
-  nav img {
-    height: 70px;
-    width: auto;
-    margin-right: 15px;
-  }
-  .nav-links {
-    margin-right: 20px;
-  }
+nav img {
+  height: 70px;
+  width: auto;
+  margin-right: 15px;
+}
+.nav-links {
+  margin-right: 20px;
+}
 
-  .nav-links a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-  }
+.nav-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.auth-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
 
-  .container {
-    max-width: 420px;
-    margin: 80px auto;
-    background: white;
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-    animation: fadeIn 1s ease;
-  }
+.auth-buttons a {
+  background-color: white;
+  color: #007bff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
 
-  .container h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #007bff;
-    font-size: 28px;
-  }
+.auth-buttons a:hover {
+  background-color: #0056b3;
+  color: white;
+}
+.container {
+  max-width: 420px;
+  margin: 80px auto;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+}
 
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 14px;
-    margin: 12px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: 0.3s;
-  }
+.container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #007bff;
+  font-size: 28px;
+}
 
-  input[type="text"]:focus,
-  input[type="password"]:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 6px rgba(0,123,255,0.3);
-  }
+input[type="text"],
+input[type="password"] {
+  width: 90%;
+  padding: 14px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
 
-  button {
-    width: 100%;
-    padding: 14px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
 
-  button:hover {
-    background-color: #0056b3;
-    transform: scale(1.03);
-  }
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-  .register-link {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-  }
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
 
-  .register-link a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
+.register-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
 
-  .register-link a:hover {
-    text-decoration: underline;
-  }
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
