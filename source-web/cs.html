@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Service - Top Up Game</title>
-<link rel="stylesheet" href="./css/cs.css">
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Service - Top Up Game</title>
+    <link rel="stylesheet" href="./css/cs.css" />
+  </head>
+  <body>
     <nav>
-        <img src="./css/foto/logoacil.png" alt="Logo">
-        <div class="nav-links">
-          <a href="profil.html">Profil</a>
-          <a href="pilih-game.html">Home</a>
-          <a href="informasi.html">Informasi Web</a>
-          <a href="cs.html">Customer Service</a>
-        </div>
-      </nav>
-  <div class="container">
-    <h2>Customer Service</h2>
-    <p>Hubungi kami jika ada pertanyaan atau kendala:</p>
-    <p>Email: rizkipermanade@gmail.com</p>
-    <p>WhatsApp: 0882-2826-1717</p>
-  </div>
-</body>
+      <img src="./css/foto/logoacil.png" alt="Logo" />
+      <div class="nav-links">
+        <a href="profil.html">Profil</a>
+        <a href="pilih-game.html">Home</a>
+        <a href="informasi.html">Informasi Web</a>
+        <a href="cs.html">Customer Service</a>
+      </div>
+    </nav>
+    <div class="form-container">
+      <h1>Hubungi Customer Service</h1>
+      <p>Kami siap membantu pertanyaan atau kendala kamu.</p>
+      <form id="cs-form">
+        <label for="nama">Nama Lengkap</label>
+        <input
+          type="text"
+          id="nama"
+          name="nama"
+          placeholder="Nama kamu..."
+          required
+        />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email aktif..."
+          required
+        />
+
+        <label for="pesan">Pesan / Kendala</label>
+        <textarea
+          id="pesan"
+          name="pesan"
+          rows="5"
+          placeholder="Tulis pesanmu di sini..."
+          required
+        ></textarea>
+
+        <button type="submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </body>
 </html>
