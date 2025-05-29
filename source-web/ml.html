@@ -2,12 +2,13 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Top Up Mobile Legends</title>
     <link rel="stylesheet" href="./css/ml.css" />
   </head>
   <body>
     <nav>
-      <img src="./css/foto/logoacil.png" alt="Logo" />
+      <img src="./css/foto/logoacil.png" alt="Logo Acil Top Up" class="logo" />
       <div class="nav-links">
         <a href="profil.html">Profil</a>
         <a href="pilih-game.html">Home</a>
@@ -16,40 +17,50 @@
       </div>
     </nav>
 
-    <h2>Top Up Mobile Legends</h2>
+    <main class="container">
+      <h1>Top Up Mobile Legends</h1>
 
-    <input
-      type="text"
-      id="userID"
-      placeholder="Masukkan ID Mobile Legends kamu"
-    />
+      <div class="input-section">
+        <label for="userID">ID Mobile Legends</label>
+        <input
+          type="text"
+          id="userID"
+          placeholder="Masukkan ID Mobile Legends kamu"
+          required
+        />
+      </div>
 
-    <div class="nominal-container">
-      <div class="nominal-box" onclick="pilih(86, 1500)">
-        86 Diamond<br />Rp 1.500
+      <div class="nominal-container">
+        <h3>Pilih Nominal Diamond:</h3>
+        <div class="nominal-grid">
+          <div class="nominal-box" onclick="pilih(86, 1500)">
+            86 Diamond<br />Rp 15.500
+          </div>
+          <div class="nominal-box" onclick="pilih(172, 3000)">
+            172 Diamond<br />Rp 30.000
+          </div>
+          <div class="nominal-box" onclick="pilih(257, 4500)">
+            257 Diamond<br />Rp 40.500
+          </div>
+          <div class="nominal-box" onclick="pilih(514, 9000)">
+            514 Diamond<br />Rp 90.000
+          </div>
+        </div>
       </div>
-      <div class="nominal-box" onclick="pilih(172, 3000)">
-        172 Diamond<br />Rp 3.000
-      </div>
-      <div class="nominal-box" onclick="pilih(257, 4500)">
-        257 Diamond<br />Rp 4.500
-      </div>
-      <div class="nominal-box" onclick="pilih(514, 9000)">
-        514 Diamond<br />Rp 9.000
-      </div>
-    </div>
 
-    <div class="discount-container">
-      <input
-        type="text"
-        class="kupon"
-        id="kupon"
-        placeholder="Masukkan Kupon"
-      />
-      <button onclick="applyDiscount()">Gunakan Kupon</button>
-    </div>
+      <div class="discount-container">
+        <h3>Kode Kupon (Jika Ada)</h3>
+        <div class="coupon-input">
+          <input type="text" id="kupon" placeholder="Masukkan Kupon" />
+          <button onclick="applyDiscount()">Gunakan Kupon</button>
+        </div>
+      </div>
 
-    <button onclick="lanjut()">Lanjut ke Pembayaran</button>
+      <button class="payment-button" onclick="lanjut()">
+        Lanjut ke Pembayaran
+      </button>
+    </main>
+
+    <script src="./js/ml.js"></script>
   </body>
-  <script src="./js/ml.js"></script>
 </html>

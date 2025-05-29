@@ -2,50 +2,65 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Top Up PUBG Mobile</title>
     <link rel="stylesheet" href="./css/pubg.css" />
   </head>
   <body>
     <nav>
-      <img src="./css/foto/logoacil.png" alt="Logo" />
+      <img src="./css/foto/logoacil.png" alt="Logo Acil Top Up" class="logo" />
       <div class="nav-links">
         <a href="profil.html">Profil</a>
         <a href="pilih-game.html">Home</a>
-        <a href="informasi.html">Informasi Web</a>
+        <a href="info.html">Informasi Web</a>
         <a href="cs.html">Customer Service</a>
       </div>
     </nav>
 
-    <h2>Top Up PUBG Mobile</h2>
+    <main class="container">
+      <h1>Top Up PUBG Mobile</h1>
 
-    <input type="text" id="userID" placeholder="Masukkan ID PUBG Mobile kamu" />
+      <div class="input-section">
+        <label for="userID">ID PUBG Mobile</label>
+        <input
+          type="text"
+          id="userID"
+          placeholder="Masukkan ID PUBG Mobile kamu"
+          required
+        />
+      </div>
 
-    <div class="nominal-container">
-      <div class="nominal-box" onclick="pilih(60, 1500)">
-        60 UC<br />Rp 1.500
+      <div class="nominal-container">
+        <h3>Pilih Nominal UC:</h3>
+        <div class="nominal-grid">
+          <div class="nominal-box" onclick="pilih(60, 1500)">
+            60 UC<br />Rp 17.500
+          </div>
+          <div class="nominal-box" onclick="pilih(120, 3000)">
+            120 UC<br />Rp 32.000
+          </div>
+          <div class="nominal-box" onclick="pilih(240, 6000)">
+            240 UC<br />Rp 65.000
+          </div>
+          <div class="nominal-box" onclick="pilih(600, 12000)">
+            600 UC<br />Rp 120.000
+          </div>
+        </div>
       </div>
-      <div class="nominal-box" onclick="pilih(120, 3000)">
-        120 UC<br />Rp 3.000
-      </div>
-      <div class="nominal-box" onclick="pilih(240, 6000)">
-        240 UC<br />Rp 6.000
-      </div>
-      <div class="nominal-box" onclick="pilih(600, 12000)">
-        600 UC<br />Rp 12.000
-      </div>
-    </div>
 
-    <div class="discount-container">
-      <input
-        type="text"
-        class="kupon"
-        id="kupon"
-        placeholder="Masukkan Kupon"
-      />
-      <button onclick="applyDiscount()">Gunakan Kupon</button>
-    </div>
+      <div class="discount-container">
+        <h3>Kode Kupon (Jika Ada)</h3>
+        <div class="coupon-input">
+          <input type="text" id="kupon" placeholder="Masukkan Kupon" />
+          <button onclick="applyDiscount()">Gunakan Kupon</button>
+        </div>
+      </div>
 
-    <button onclick="lanjut()">Lanjut ke Pembayaran</button>
+      <button class="payment-button" onclick="lanjut()">
+        Lanjut ke Pembayaran
+      </button>
+    </main>
+
+    <script src="./js/pubg.js"></script>
   </body>
-  <script src="./js/pubg.js"></script>
 </html>

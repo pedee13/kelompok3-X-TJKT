@@ -1,49 +1,76 @@
-function toggleMenu() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+let selectedDiamond = null;
+let selectedPrice = null;
+let discountApplied = false;
+let discountValue = 0;
+
+function pilih(diamond, harga) {
+  selectedDiamond = diamond;
+  selectedPrice = harga;
+
+  // Reset semua box terlebih dahulu
+  document.querySelectorAll(".nominal-box").forEach((box) => {
+    box.classList.remove("selected");
+  });
+
+  // Tambah class selected ke box yang dipilih
+  event.currentTarget.classList.add("selected");
+
+  console.log(`Dipilih: ${diamond} Diamond seharga Rp ${harga}`);
+}
+
+function applyDiscount() {
+  const kuponInput = document.getElementById("kupon").value.trim();
+
+  // Daftar kupon valid
+  const validCoupons = {
+    FF10: 0.1, // Diskon 10%
+    FF15: 0.15, // Diskon 15%
+    FF30: 0.3, // Diskon 30%
+  };
+
+  if (kuponInput in validCoupons) {
+    discountValue = validCoupons[kuponInput];
+    discountApplied = true;
+    alert(
+      `Kupon berhasil digunakan! Diskon ${discountValue * 100}% diterapkan.`
+    );
+  } else {
+    discountApplied = false;
+    alert("Kupon tidak valid atau sudah kadaluarsa");
+  }
+}
+
+function lanjut() {
+  const userID = document.getElementById("userID").value.trim();
+
+  if (!userID) {
+    alert("Masukkan ID Free Fire terlebih dahulu!");
+    return;
   }
 
-  let diamond = 0;
-  let harga = 0;
-  let discount = 0;
-
-  function pilih(nom, price) {
-    diamond = nom;
-    harga = price;
-    document
-      .querySelectorAll(".nominal-box")
-      .forEach((box) => box.classList.remove("selected"));
-    event.currentTarget.classList.add("selected");
+  if (!selectedDiamond || !selectedPrice) {
+    alert("Pilih nominal diamond terlebih dahulu!");
+    return;
   }
 
-  function applyDiscount() {
-    const kuponInput = document.getElementById("kupon").value.trim();
-    if (kuponInput === "DISKON5") {
-      discount = 0.05;
-      alert("Kupon berhasil diterapkan! Anda mendapatkan diskon 5%.");
-    } else {
-      discount = 0;
-      alert("Kupon tidak valid.");
-    }
+  let finalPrice = selectedPrice;
+  if (discountApplied) {
+    finalPrice = selectedPrice * (1 - discountValue);
+    alert(`Total harga setelah diskon: Rp ${Math.round(finalPrice)}`);
   }
 
-  function lanjut() {
-    const id = document.getElementById("userID").value.trim();
-    if (!id) {
-      alert("Silakan isi ID Free Fire kamu.");
-      return;
-    }
-    if (!diamond || !harga) {
-      alert("Silakan pilih nominal terlebih dahulu.");
-      return;
-    }
+  // Simpan data ke localStorage
+  localStorage.setItem(
+    "ffData",
+    JSON.stringify({
+      userID,
+      diamond: selectedDiamond,
+      originalPrice: selectedPrice,
+      finalPrice: Math.round(finalPrice),
+      discount: discountApplied ? discountValue * 100 : 0,
+    })
+  );
 
-    // Hitung harga setelah diskon
-    let finalPrice = harga - harga * discount;
-
-    localStorage.setItem("gameID", id);
-    localStorage.setItem("nominal", diamond);
-    localStorage.setItem("harga", finalPrice);
-    localStorage.setItem("discount", discount);
-    window.location.href = "pembayaran.html";
-  }
+  // Redirect ke halaman pembayaran
+  window.location.href = "pembayaran.html";
+}
