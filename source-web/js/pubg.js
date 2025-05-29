@@ -1,44 +1,76 @@
-let uc = 0;
-let harga = 0;
-let discount = 0;
+let selectedUC = null;
+let selectedPrice = null;
+let discountApplied = false;
+let discountValue = 0;
 
-function pilih(nom, price) {
-  uc = nom;
-  harga = price;
-  document
-    .querySelectorAll(".nominal-box")
-    .forEach((box) => box.classList.remove("selected"));
+function pilih(uc, harga) {
+  selectedUC = uc;
+  selectedPrice = harga;
+
+  // Reset semua box terlebih dahulu
+  document.querySelectorAll(".nominal-box").forEach((box) => {
+    box.classList.remove("selected");
+  });
+
+  // Tambah class selected ke box yang dipilih
   event.currentTarget.classList.add("selected");
+
+  console.log(`Dipilih: ${uc} UC seharga Rp ${harga}`);
 }
 
 function applyDiscount() {
   const kuponInput = document.getElementById("kupon").value.trim();
-  if (kuponInput === "DISKON5") {
-    discount = 0.05;
-    alert("Kupon berhasil diterapkan! Anda mendapatkan diskon 5%.");
+
+  // Daftar kupon valid
+  const validCoupons = {
+    PUBG5: 0.05, // Diskon 5%
+    PUBG10: 0.1, // Diskon 10%
+    PUBG25: 0.25, // Diskon 25%
+  };
+
+  if (kuponInput in validCoupons) {
+    discountValue = validCoupons[kuponInput];
+    discountApplied = true;
+    alert(
+      `Kupon berhasil digunakan! Diskon ${discountValue * 100}% diterapkan.`
+    );
   } else {
-    discount = 0;
-    alert("Kupon tidak valid.");
+    discountApplied = false;
+    alert("Kupon tidak valid atau sudah kadaluarsa");
   }
 }
 
 function lanjut() {
-  const id = document.getElementById("userID").value.trim();
-  if (!id) {
-    alert("Silakan isi ID PUBG Mobile kamu.");
-    return;
-  }
-  if (!uc || !harga) {
-    alert("Silakan pilih nominal terlebih dahulu.");
+  const userID = document.getElementById("userID").value.trim();
+
+  if (!userID) {
+    alert("Masukkan ID PUBG Mobile terlebih dahulu!");
     return;
   }
 
-  // Hitung harga setelah diskon
-  let finalPrice = harga - harga * discount;
+  if (!selectedUC || !selectedPrice) {
+    alert("Pilih nominal UC terlebih dahulu!");
+    return;
+  }
 
-  localStorage.setItem("gameID", id);
-  localStorage.setItem("nominal", uc);
-  localStorage.setItem("harga", finalPrice);
-  localStorage.setItem("discount", discount);
+  let finalPrice = selectedPrice;
+  if (discountApplied) {
+    finalPrice = selectedPrice * (1 - discountValue);
+    alert(`Total harga setelah diskon: Rp ${Math.round(finalPrice)}`);
+  }
+
+  // Simpan data ke localStorage
+  localStorage.setItem(
+    "pubgData",
+    JSON.stringify({
+      userID,
+      uc: selectedUC,
+      originalPrice: selectedPrice,
+      finalPrice: Math.round(finalPrice),
+      discount: discountApplied ? discountValue * 100 : 0,
+    })
+  );
+
+  // Redirect ke halaman pembayaran
   window.location.href = "pembayaran.html";
 }

@@ -1,48 +1,76 @@
-function toggleMenu() {
-  const menu = document.getElementById("dropdownMenu");
-  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-}
-let diamond = 0;
-let harga = 0;
-let discount = 0;
+let selectedDiamond = null;
+let selectedPrice = null;
+let discountApplied = false;
+let discountValue = 0;
 
-function pilih(nom, price) {
-  diamond = nom;
-  harga = price;
-  document
-    .querySelectorAll(".nominal-box")
-    .forEach((box) => box.classList.remove("selected"));
+function pilih(diamond, harga) {
+  selectedDiamond = diamond;
+  selectedPrice = harga;
+
+  // Reset semua box terlebih dahulu
+  document.querySelectorAll(".nominal-box").forEach((box) => {
+    box.classList.remove("selected");
+  });
+
+  // Tambah class selected ke box yang dipilih
   event.currentTarget.classList.add("selected");
+
+  console.log(`Dipilih: ${diamond} Diamond seharga Rp ${harga}`);
 }
 
 function applyDiscount() {
   const kuponInput = document.getElementById("kupon").value.trim();
-  if (kuponInput === "DISKON5") {
-    discount = 0.05;
-    alert("Kupon berhasil diterapkan! Anda mendapatkan diskon 5%.");
+
+  // Daftar kupon valid (bisa disimpan di database di implementasi nyata)
+  const validCoupons = {
+    ML10: 0.1, // Diskon 10%
+    ML20: 0.2, // Diskon 20%
+    ML50: 0.5, // Diskon 50%
+  };
+
+  if (kuponInput in validCoupons) {
+    discountValue = validCoupons[kuponInput];
+    discountApplied = true;
+    alert(
+      `Kupon berhasil digunakan! Diskon ${discountValue * 100}% diterapkan.`
+    );
   } else {
-    discount = 0;
-    alert("Kupon tidak valid.");
+    discountApplied = false;
+    alert("Kupon tidak valid atau sudah kadaluarsa");
   }
 }
 
 function lanjut() {
-  const id = document.getElementById("userID").value.trim();
-  if (!id) {
-    alert("Silakan isi ID Mobile Legends kamu.");
-    return;
-  }
-  if (!diamond || !harga) {
-    alert("Silakan pilih nominal terlebih dahulu.");
+  const userID = document.getElementById("userID").value.trim();
+
+  if (!userID) {
+    alert("Masukkan ID Mobile Legends terlebih dahulu!");
     return;
   }
 
-  // Hitung harga setelah diskon
-  let finalPrice = harga - harga * discount;
+  if (!selectedDiamond || !selectedPrice) {
+    alert("Pilih nominal diamond terlebih dahulu!");
+    return;
+  }
 
-  localStorage.setItem("gameID", id);
-  localStorage.setItem("nominal", diamond);
-  localStorage.setItem("harga", finalPrice);
-  localStorage.setItem("discount", discount);
+  let finalPrice = selectedPrice;
+  if (discountApplied) {
+    finalPrice = selectedPrice * (1 - discountValue);
+    alert(`Total harga setelah diskon: Rp ${Math.round(finalPrice)}`);
+  }
+
+  // Simpan data ke localStorage untuk diproses di halaman pembayaran
+  localStorage.setItem(
+    "mlData",
+    JSON.stringify({
+      userID,
+      diamond: selectedDiamond,
+      originalPrice: selectedPrice,
+      finalPrice: Math.round(finalPrice),
+      discount: discountApplied ? discountValue * 100 : 0,
+    })
+  );
+
+  // Redirect ke halaman pembayaran
   window.location.href = "pembayaran.html";
 }

@@ -2,50 +2,65 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Top Up Free Fire</title>
-    <link rel="stylesheet" href="../source-web/css/ff.css" />
+    <link rel="stylesheet" href="./css/ff.css" />
   </head>
   <body>
     <nav>
-      <img src="./css/foto/logoacil.png" alt="Logo" />
+      <img src="./css/foto/logoacil.png" alt="Logo Acil Top Up" class="logo" />
       <div class="nav-links">
         <a href="profil.html">Profil</a>
         <a href="pilih-game.html">Home</a>
-        <a href="informasi.html">Informasi Web</a>
+        <a href="info.html">Informasi Web</a>
         <a href="cs.html">Customer Service</a>
       </div>
     </nav>
 
-    <h2>Top Up Free Fire</h2>
+    <main class="container">
+      <h1>Top Up Free Fire</h1>
 
-    <input type="text" id="userID" placeholder="Masukkan ID Free Fire kamu" />
+      <div class="input-section">
+        <label for="userID">ID Free Fire</label>
+        <input
+          type="text"
+          id="userID"
+          placeholder="Masukkan ID Free Fire kamu"
+          required
+        />
+      </div>
 
-    <div class="nominal-container">
-      <div class="nominal-box" onclick="pilih(60, 1000)">
-        60 Diamond<br />Rp 1.000
+      <div class="nominal-container">
+        <h3>Pilih Nominal Diamond:</h3>
+        <div class="nominal-grid">
+          <div class="nominal-box" onclick="pilih(60, 1000)">
+            60 Diamond<br />Rp 10.000
+          </div>
+          <div class="nominal-box" onclick="pilih(120, 2000)">
+            120 Diamond<br />Rp 20.000
+          </div>
+          <div class="nominal-box" onclick="pilih(180, 3000)">
+            180 Diamond<br />Rp 30.000
+          </div>
+          <div class="nominal-box" onclick="pilih(360, 6000)">
+            360 Diamond<br />Rp 50.000
+          </div>
+        </div>
       </div>
-      <div class="nominal-box" onclick="pilih(120, 2000)">
-        120 Diamond<br />Rp 2.000
-      </div>
-      <div class="nominal-box" onclick="pilih(180, 3000)">
-        180 Diamond<br />Rp 3.000
-      </div>
-      <div class="nominal-box" onclick="pilih(360, 6000)">
-        360 Diamond<br />Rp 6.000
-      </div>
-    </div>
 
-    <div class="discount-container">
-      <input
-        type="text"
-        class="kupon"
-        id="kupon"
-        placeholder="Masukkan Kupon"
-      />
-      <button onclick="applyDiscount()">Gunakan Kupon</button>
-    </div>
+      <div class="discount-container">
+        <h3>Kode Kupon (Jika Ada)</h3>
+        <div class="coupon-input">
+          <input type="text" id="kupon" placeholder="Masukkan Kupon" />
+          <button onclick="applyDiscount()">Gunakan Kupon</button>
+        </div>
+      </div>
 
-    <button onclick="lanjut()">Lanjut ke Pembayaran</button>
+      <button class="payment-button" onclick="lanjut()">
+        Lanjut ke Pembayaran
+      </button>
+    </main>
+
+    <script src="./js/ff.js"></script>
   </body>
-  <script src="../source-web/js/ff.js"></script>
 </html>
